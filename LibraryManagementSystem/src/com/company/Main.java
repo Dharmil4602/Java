@@ -13,6 +13,7 @@ this.books = new String[100];
 this.no_of_books = 0;
 }
 
+// Adds the book
 void addBook(String book)
 {
     this.books[no_of_books] = book;
@@ -20,7 +21,7 @@ void addBook(String book)
     System.out.println(book + " Book Has Been Added");
 }
 
-
+// Shows the available books
 void showAvailableBook()
 {
     int n = 100;
@@ -30,7 +31,7 @@ void showAvailableBook()
     {
         if (book == null)
         {
-            break;
+            continue; // By continuing here the below function issueBook will be removing the book we issued from the array
         }
         for (int i = 1; i <= n; i++)
         {
@@ -40,6 +41,29 @@ void showAvailableBook()
 
     }
 }
+
+// Issuing A Book
+void issueBook(String book)
+{
+    System.out.println(" ");
+        for (int i = 0; i <= this.books.length; i++) {
+            if (this.books[i].equals(book)) {
+                System.out.println( book + " Book Has Been Issued");
+                this.books[i] = null;
+                return;
+            }
+        }
+        System.out.println("This Book Does Not Exist");
+}
+
+// Returning A Issued Book
+    void returnBook(String book)
+    {
+        System.out.println(" ");
+//        this.books[no_of_books] = book;
+        addBook(book);
+        System.out.println( book + " Book Has Been Returned");
+    }
 
 
 }
@@ -53,6 +77,10 @@ public class Main {
         onlineLibrary.addBook("The Worst Experience");
         onlineLibrary.addBook("C++");
         onlineLibrary.addBook("Algorithms");
+        onlineLibrary.showAvailableBook();
+        onlineLibrary.issueBook("C++");
+        onlineLibrary.showAvailableBook();
+        onlineLibrary.returnBook("C++");
         onlineLibrary.showAvailableBook();
 
     }
