@@ -4,7 +4,7 @@ class C1{
     // public, protected, private, and default (int z one) are access modifiers
     public int x = 5;
     protected int y = 45;
-    int z = 46;
+    int z = 46; // No modifier i.e. default
     private int n = 2;
     public void meth()
     {
